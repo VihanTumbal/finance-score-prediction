@@ -250,22 +250,7 @@ gunicorn==21.2.0
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-For support, email your-email@example.com or create an issue on GitHub.
-
-## 🚧 Roadmap
-
-- [ ] Add user authentication
-- [ ] Implement data persistence with database
-- [ ] Add more sophisticated ML models
-- [ ] Create mobile app version
-- [ ] Add historical tracking and trends
-- [ ] Implement A/B testing for recommendations
 
 ## ⚠️ Disclaimer
 
