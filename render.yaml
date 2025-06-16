@@ -4,38 +4,14 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn flask_backend:app --host 0.0.0.0 --port $PORT
+    startCommand: gunicorn flask_backend:app
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: "3.10.12"
-      - key: MODEL_PATH
-        value: "financial_health_model.pkl"
       - key: FLASK_ENV
         value: "production"
       - key: PYTHONUNBUFFERED
         value: "1"
     autoDeploy: true
     branch: main
-    rootDir: .
-    preDeployCommand: python financial_health_model.py
-    disk:
-      name: data
-      mountPath: /opt/render/project/src/data
-      sizeGB: 1
-    region: oregon
-    runtime: python
-    scaling:
-      minInstances: 0
-      maxInstances: 1
-    headers:
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-    routes:
-      - type: rewrite
-        source: /api/*
-        destination: /*
